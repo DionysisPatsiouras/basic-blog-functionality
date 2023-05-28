@@ -1,15 +1,14 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
-import NavigationBar from "./NavigationBar"
+import style from './../style/Posts.module.css'
 
 
 
 export default function Posts() {
 
     const [data, setData] = useState([])
-   
+
 
     useEffect(() => {
         document.title = 'Posts'
@@ -23,19 +22,22 @@ export default function Posts() {
 
 
     return (
-        <div>
-            <NavigationBar />
-            <h1>Posts</h1>
+        <div className="container">
+            <h1 className="title">Posts</h1>
 
-
-            {data.map((post) => (
-                <ul key={post.id}>
-                    <h3>{post.title}</h3>
-                    {/* <p>{post.body}</p> */}
-                    <Link to={'/edit-post/' + post.id}>Edit</Link><br></br>
-                    <Link to={'/post/' + post.id}>Read More</Link>
-                </ul>
-            ))}
+            <div className={style.all_posts}>
+                {data.map((post) => (
+                    <div key={post.id} className={style.post}>
+                        <h3>{post.title}</h3>
+                        {/* <hr></hr> */}
+                        {/* <p>{post.body}</p> */}
+                        <div className={style.actions}>
+                            {/* <Link to={'/edit-post/' + post.id}><button>Edit</button></Link><br></br> */}
+                            <Link to={'/post/' + post.id}><button>Read More</button></Link>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

@@ -2,9 +2,13 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import NavigationBar from "./NavigationBar"
 
 export default function NewPost() {
+
+
+    useEffect(() => {
+        document.title = 'New Post'
+      })
 
     const navigate = useNavigate()
 
@@ -35,8 +39,7 @@ export default function NewPost() {
 
     return (
         <div>
-            <NavigationBar />
-            <h1>New Post</h1>
+            <h1 className='title'>New Post</h1>
 
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='Title' name="title" onChange={handleInput} />

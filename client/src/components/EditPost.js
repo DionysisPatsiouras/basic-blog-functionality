@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom"
-import NavigationBar from "./NavigationBar"
+import axios from "axios"
 
 export default function EditPost() {
-
 
     const params = useParams()
     const navigate = useNavigate()
@@ -17,7 +15,6 @@ export default function EditPost() {
     const handleInput = (event) => {
         setPost({ ...post, [event.target.name]: event.target.value })
     }
-
 
 
     useEffect(() => {
@@ -40,18 +37,13 @@ export default function EditPost() {
 
     return (
         <div>
-            <NavigationBar />
             <h2>Modify " {data.title} " post</h2>
-
-
 
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder='Title' name="title" onChange={handleInput} />
                 <input type="textarea" placeholder='Body' name="body" onChange={handleInput} />
                 <button type="submit">Update</button>
             </form>
-
-
 
         </div>
     )

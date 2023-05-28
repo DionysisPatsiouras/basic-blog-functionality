@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import { useParams, useNavigate, Link } from "react-router-dom"
-
-import NavigationBar from "./NavigationBar"
+import axios from "axios"
 
 
 export default function Post(props) {
@@ -27,8 +25,6 @@ export default function Post(props) {
 
     return (
         <div>
-
-            <NavigationBar />
             <h3>{data.title}</h3><br></br>
             <p>{data.body}</p>
             <button><Link to={'/edit-post/' + params.id}>Edit</Link></button>

@@ -1,20 +1,14 @@
 import { Link } from 'react-router-dom'
-
+import style from './../style/Nav.module.css'
 
 export default function NavigationBar() {
     return (
-        <div>
+        <nav className={style.nav}>
             <ul>
-                <li>
-                    <Link to='/'>Homepage</Link>
-                </li>
-                <li>
-                    <Link to='/posts'>Posts</Link>
-                </li>
-                <li>
-                    <Link to='/new-post'>New Post</Link>
-                </li>
+                <Link to='/'><li>Homepage</li></Link>
+                <Link to='/posts'><li>Posts</li></Link>
+                <Link to='/new-post'><li>New Post</li></Link>
             </ul>
-        </div>
+        </nav>
     )
 }
